@@ -5,6 +5,8 @@ import { Canvas } from "@react-three/fiber";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Scene from "./Scene";
+import Loader from "./Loader";
+import { Loader as DreiLoader } from "@react-three/drei";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -66,13 +68,14 @@ function App() {
           ref={sceneRef}
           className="h-[100vh] pt-[20vh] w-[100vw] text-white "
         >
-          {/* <Suspense fallback={<div>Loading...</div>}> */}
-          <Canvas
-            camera={{ position: [0, 0, 6], fov: 45, near: 0.1, far: 1000 }}
-          >
-            <Scene progress={progress} />
-          </Canvas>
-          {/* </Suspense> */}
+          <Suspense fallback={<Loader />}>
+            <Canvas
+              camera={{ position: [0, 0, 6], fov: 45, near: 0.1, far: 1000 }}
+            >
+              <Scene progress={progress} />
+            </Canvas>
+            <DreiLoader />
+          </Suspense>
         </div>
       </section>
 
