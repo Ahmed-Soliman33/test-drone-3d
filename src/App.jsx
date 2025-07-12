@@ -66,13 +66,13 @@ function App() {
           ref={sceneRef}
           className="h-[100vh] pt-[20vh] w-[100vw] text-white "
         >
-          <Suspense fallback={<div>Loading...</div>}>
-            <Canvas
-              camera={{ position: [0, 0, 6], fov: 45, near: 0.1, far: 1000 }}
-            >
-              <Scene progress={progress} />
-            </Canvas>
-          </Suspense>
+          {/* <Suspense fallback={<div>Loading...</div>}> */}
+          <Canvas
+            camera={{ position: [0, 0, 6], fov: 45, near: 0.1, far: 1000 }}
+          >
+            <Scene progress={progress} />
+          </Canvas>
+          {/* </Suspense> */}
         </div>
       </section>
 
